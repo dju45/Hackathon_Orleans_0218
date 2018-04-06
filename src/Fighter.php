@@ -7,6 +7,10 @@
  */
 
 namespace src;
+require __DIR__ . '/../vendor/autoload.php';
+
+use GuzzleHttp\Client;
+
 
 
 class Fighter
@@ -31,12 +35,24 @@ class Fighter
      */
     private $strength;
 
-    public function __construct($name, $strength, $speed, $power)
+    public function __construct()
     {
-        $this->name= $name;
-        $this->strength= $strength;
-        $this->speed= $speed;
-        $this->power= $power;
+
+        $client = new Client([
+            // Base URI is used with relative requests
+            'base_uri' => 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/',
+            // You can set any number of default request options.
+
+        ]);
+        $response = $client->request('GET', 'id/25.json');
+        $body = $response->getBody();
+        $characteristics = (json_decode($body));
+
+
+        $this->name= $characteristics->name;
+        $this->strength= $characteristics->powerstats->strength;
+        $this->speed= $characteristics->powerstats->speed;
+        $this->power= $characteristics->powerstats->power;
     }
 
     /**
