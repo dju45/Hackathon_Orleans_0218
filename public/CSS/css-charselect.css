@@ -1,0 +1,29 @@
+body{
+   background-color: black;
+    color : whitesmoke;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.thumbnail{
+    background-color: black;
+}
+
+.TNVS{
+    border : 0px;
+}
+
+.color{
+    color : orange;
+}
+
+.select{
+    margin-top: 4%;
+}
+
+.taille{
+    height: 250px;
+}
+
+.textetaille{
+    word-wrap: break-word;
+}

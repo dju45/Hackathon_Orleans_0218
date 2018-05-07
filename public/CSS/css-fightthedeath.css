@@ -1,0 +1,52 @@
+.hauteur{
+    width: 432px;
+    height: 50px;
+    background-color: darkviolet;
+    position: relative;
+
+}
+
+.hauteur2{
+    max-width: 432px;
+    height: 50px;
+    background-color: orange;
+    position: absolute;
+    border-right: 3px white solid
+}
+
+
+body{
+    background-color: black;
+    color : whitesmoke;
+    font-family: 'Press Start 2P', cursive;
+}
+.thumbnail{
+    background-color: black;
+}
+
+.TNVS{
+    border : 0px;
+    margin-top: 50px;
+
+}
+
+.color{
+    color : orange;
+}
+
+.row1{
+    height: 50px;
+
+}
+.row3{
+
+    height: 100px;
+}
+.row4{
+
+    height: 100px;
+}
+.row5{
+
+    height: 100px;
+}

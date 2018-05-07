@@ -1,0 +1,14 @@
+.CENTER{
+    margin: auto;
+}
+
+body{
+    background-color: black;
+    color : whitesmoke;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.color{
+    background-color: black;
+    border : 0px;
+}

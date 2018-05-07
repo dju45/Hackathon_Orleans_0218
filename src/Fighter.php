@@ -1,27 +1,23 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: julien
- * Date: 05/04/18
- * Time: 22:08
+ * User: wilder17
+ * Date: 06/04/18
+ * Time: 10:05
  */
-
 namespace src;
 require __DIR__ . '/../vendor/autoload.php';
-
-use GuzzleHttp\Client;
-
-
-
 class Fighter
 {
     const POWER_MIN = 0;
-
+    /**
+     * @var int
+     */
+    private $id;
     /**
      * @var string
      */
     private $name;
-
     /**
      * @var int
      */
@@ -34,27 +30,28 @@ class Fighter
      * @var int
      */
     private $strength;
-
-    public function __construct()
+    public function __construct($id, $name, $strength, $speed, $power)
     {
-
-        $client = new Client([
-            // Base URI is used with relative requests
-            'base_uri' => 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/',
-            // You can set any number of default request options.
-
-        ]);
-        $response = $client->request('GET', 'id/25.json');
-        $body = $response->getBody();
-        $characteristics = (json_decode($body));
-
-
-        $this->name= $characteristics->name;
-        $this->strength= $characteristics->powerstats->strength;
-        $this->speed= $characteristics->powerstats->speed;
-        $this->power= $characteristics->powerstats->power;
+        $this->id = $id;
+        $this->name = $name;
+        $this->strength = $strength;
+        $this->speed = $speed;
+        $this->power = $power;
     }
-
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * @return string
      */
@@ -62,7 +59,6 @@ class Fighter
     {
         return $this->name;
     }
-
     /**
      * @param string $name
      */
@@ -70,8 +66,6 @@ class Fighter
     {
         $this->name = $name;
     }
-
-
     /**
      * @return mixed
      */
@@ -79,7 +73,6 @@ class Fighter
     {
         return $this->strength;
     }
-
     /**
      * @param mixed $strength
      * @return Fighter
@@ -89,7 +82,6 @@ class Fighter
         $this->strength = $strength;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -97,7 +89,6 @@ class Fighter
     {
         return $this->speed;
     }
-
     /**
      * @param mixed $speed
      * @return Fighter
@@ -107,7 +98,6 @@ class Fighter
         $this->speed = $speed;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -115,7 +105,6 @@ class Fighter
     {
         return $this->power;
     }
-
     /**
      * @param mixed $power
      * @return Fighter
@@ -125,10 +114,8 @@ class Fighter
         $this->power = $power;
         return $this;
     }
-
     public function defense(Fighter $enemy, $attakPosition, $defensePosition)
     {
-
         if ($attakPosition!= $defensePosition) {
             if ($this->power<= $enemy->strength) {
                 $this->power = self::POWER_MIN;
@@ -143,8 +130,6 @@ class Fighter
         }
         if ($this->power == self::POWER_MIN) {
             echo 'Fatal strike! ' . $enemy->name . ' wins!';
-            header('Location: index.php');
         }
     }
-
 }

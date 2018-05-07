@@ -1,12 +1,17 @@
 {
-    "name": "julien/hackathon_orleans_0218",
-    "require": {
-        "guzzlehttp/guzzle": "^6.3"
-    },
+    "name": "takne/poubelle",
+    "description": "test du hackathon",
     "authors": [
         {
-            "name": "julien hoste",
-            "email": "hostejulien@gmail.com"
+            "name": "Clement PAQUIN",
+            "email": "clement.paquin@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "": "/Poubelle"
+
+    }
+
+
 }
